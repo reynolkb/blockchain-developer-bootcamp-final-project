@@ -1,0 +1,2 @@
+testnet address: 0x781B479795d72742491B4f522A811e1847fcCc9A
+network: rinkeby
