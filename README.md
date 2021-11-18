@@ -16,7 +16,7 @@ https://bitbirds.herokuapp.com/
 
 ## Video Walkthrough
 
-https://www.loom.com/share/a2398741857d43418a1cffb0b7b8a966
+https://www.loom.com/share/f5301d8fdf484c3db35abc4fd0479984
 
 ## Installation Instructions
 
