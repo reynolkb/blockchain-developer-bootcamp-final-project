@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.0;
+/// @dev SWC-103 (Floating pragma)
+pragma solidity 0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -26,12 +27,14 @@ contract BitBirds is ERC721Enumerable, Ownable {
     bool public paused = false;
 
     /// @dev events
+    /// @notice emit when a new token id is minted
+    /// @param _newTokenId is the new token id
     event printNewTokenId(uint256 _newTokenId);
 
     /// @dev modifiers placeholder
 
     /// @dev constructor
-    /// @dev SWC-118 Incorrect Constructor Name vector attack protection
+    /// @dev SWC-118 (Incorrect Constructor Name)
     /// @dev Initializes the contract setting the name, symbol and baseURI. Also mints 5 NFTs to the contract owner.
     constructor(
         string memory _name,
@@ -134,8 +137,8 @@ contract BitBirds is ERC721Enumerable, Ownable {
     }
 
     /// @dev withdraw to owner
+    /// @dev SWC-105 (Unprotected Ether Withdrawal)
     function withdraw() public payable onlyOwner {
-        /// @dev SWC-132 Unexpected Ether balance vector attack protection
         payable(owner()).transfer(getBalance());
     }
 }
