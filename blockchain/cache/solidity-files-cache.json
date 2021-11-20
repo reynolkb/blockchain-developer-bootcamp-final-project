@@ -467,8 +467,8 @@
       ]
     },
     "/Users/kylereynolds/Documents/Coding/Courses/ConsenSys/blockchain-developer-bootcamp-final-project/blockchain/contracts/BitBirds.sol": {
-      "lastModificationDate": 1637250639003,
-      "contentHash": "a29fb9e9a674fb690436b117099032b0",
+      "lastModificationDate": 1637367699496,
+      "contentHash": "914c3a287d710208bf2168026683110c",
       "sourceName": "contracts/BitBirds.sol",
       "solcConfig": {
         "version": "0.8.0",
@@ -497,7 +497,7 @@
         "@openzeppelin/contracts/access/Ownable.sol"
       ],
       "versionPragmas": [
-        "^0.8.0"
+        "0.8.0"
       ],
       "artifacts": [
         "BitBirds"

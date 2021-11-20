@@ -16,8 +16,8 @@ _DATABASE_CONNECTION_STRING = os.getenv("DATABASE_CONNECTION_STRING")
 _DATABASE_LOCAL_PORT = 27017
 
 # Mongo names
-_MONGO_COLLECTION_NAME = "BitBird"
-_MONGO_DATABASE_NAME = "BitBird"
+_MONGO_COLLECTION_NAME = "BitBirds"
+_MONGO_DATABASE_NAME = "BitBirds"
 
 
 def _GetMongoClient():
@@ -115,6 +115,8 @@ def PreProcessing(outputFolderNames):
             os.makedirs(folderName)
         for file in os.scandir(folderName):
             os.remove(file.path)
+
+
 """
 BitBird utilities.
 """
@@ -133,8 +135,8 @@ _DATABASE_CONNECTION_STRING = os.getenv("DATABASE_CONNECTION_STRING")
 _DATABASE_LOCAL_PORT = 27017
 
 # Mongo names
-_MONGO_COLLECTION_NAME = "BitBird"
-_MONGO_DATABASE_NAME = "BitBird"
+_MONGO_COLLECTION_NAME = "BitBirds"
+_MONGO_DATABASE_NAME = "BitBirds"
 
 
 def _GetMongoClient():
@@ -207,7 +209,7 @@ def GetMetadata(tokenId, mustBeExposable=True):
         return None
 
     # Return the metadata.
-    return {"name": doc["name"], "image": doc["image"], "description": "This is a " + doc["type"] + " with a rarity level of " + doc["rarity"], "type": doc["type"], "rarity": doc["rarity"]}
+    return {"name": doc["name"], "image": doc["image"], "description": "This is a " + doc["type"] + " bird with a rarity level of " + doc["rarity"], "type": doc["type"], "rarity": doc["rarity"]}
 
 
 def InsertOneDocument(document):

@@ -80,7 +80,7 @@ Create `.env` file in the `frontend` folder.
 You will need to use the same alchemy url from the `blockchain` `.env` file.<br>
 
 REACT_APP_ALCHEMY_KEY<br>
-REACT_APP_CONTRACT_ADDRESS = "0x781B479795d72742491B4f522A811e1847fcCc9A"
+REACT_APP_CONTRACT_ADDRESS = "0xc54b890D6fc15cEe98a42Bd2EE1E2841aaCBBb88"
 
 ## Directory Structure
 

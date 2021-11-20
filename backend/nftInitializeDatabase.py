@@ -1,6 +1,6 @@
-'''
+"""
 BitBirds in Mongo
-'''
+"""
 
 # https://www.youtube.com/watch?v=vTxjLLHncMo
 
@@ -28,14 +28,14 @@ import nftUtil
 dimensions = 480, 480
 
 # Set the exposableQuantity
-exposableQuantity = 10
+exposableQuantity = 1000
 
 # Set the baseUri where the images will be located.
-baseUri = 'https://bitbirds.herokuapp.com/images/'
+baseUri = "https://bitbirds.herokuapp.com/images/"
 
 # Initialize the mongoDb and remove any existing images and metadata files.
-imageFolder = 'bird_images/'
-metadataFolder = 'bird_metadata/'
+imageFolder = "bird_images/"
+metadataFolder = "bird_metadata/"
 nftUtil.PreProcessing((imageFolder, metadataFolder))
 
 # tells how many times to iterate through the following mechanism
@@ -252,7 +252,7 @@ for x in range(0, 1000):
     elif 350 >= g > 150:
         # 41 - 100 >> woodpecker
         pixels = woodpecker
-        p = "pecker"
+        p = "woodpecker"
         rarity = "rare"
 
     # 10%
@@ -280,29 +280,31 @@ for x in range(0, 1000):
 
     # Convert the image to an image_binary_string
     buffer = io.BytesIO()
-    new_image.save(buffer, format='png')
+    new_image.save(buffer, format="png")
     image_binary_string = bson.Binary(buffer.getvalue())
 
     # Create the mongoDb document.
     tokenId = x + 1
     name = str(tokenId)
-    document = {'_id': tokenId,
-                'is_exposable': tokenId <= exposableQuantity,
-                'name': name,
-                'type': p,
-                'rarity': rarity,
-                'image': baseUri + name + '.png',
-                'image_binary_string': bson.Binary(buffer.getvalue())}
+    document = {
+        "_id": tokenId,
+        "is_exposable": tokenId <= exposableQuantity,
+        "name": name,
+        "type": p,
+        "rarity": rarity,
+        "image": baseUri + name + ".png",
+        "image_binary_string": bson.Binary(buffer.getvalue()),
+    }
 
     # Insert the mongoDb document into the database.
     nftUtil.InsertOneDocument(document)
 
     # Get the imageBinaryString from the database and write it to a png file.
     imageBinaryString = nftUtil.GetImageBinaryString(tokenId, mustBeExposable=False)
-    with open(imageFolder + str(tokenId) + '.png', 'wb') as f:
+    with open(imageFolder + str(tokenId) + ".png", "wb") as f:
         f.write(imageBinaryString)
 
     # Get the metadata from the database and write it to a json file.
     metadata = nftUtil.GetMetadata(tokenId, mustBeExposable=False)
-    with open(metadataFolder + str(tokenId) + '.json', 'w') as f:
+    with open(metadataFolder + str(tokenId) + ".json", "w") as f:
         f.write(json.dumps(metadata))
