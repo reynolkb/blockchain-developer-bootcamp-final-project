@@ -11,7 +11,7 @@ const Minter = () => {
 	// string that stores the user's wallet address
 	const [walletAddress, setWallet] = useState('');
 	// number of tokens minted so far
-	const [tokensMinted, setTokensMinted] = useState(6);
+	// const [tokensMinted, setTokensMinted] = useState(6);
 	// string that contains a message to display at the bottom of the UI
 	const [status, setStatus] = useState('');
 	// string that contains the pending transaction string to display at the bottom of the UI
@@ -186,7 +186,7 @@ const Minter = () => {
 				tokenIdArr.push(tokenId);
 
 				lastIndex = tokenIdArr.length - 1;
-				setTokensMinted(numberWithCommas(tokenIdArr[lastIndex]));
+				// setTokensMinted(numberWithCommas(tokenIdArr[lastIndex]));
 				setTransactionStatus(`Now that your transaction is completed, you can view your NFT on OpenSea once the metadata is revealed. Your token id is ${tokenIdArr}.`);
 				setTransactionURLTxt('Completed Transaction');
 			} else {
@@ -196,7 +196,7 @@ const Minter = () => {
 				}
 
 				lastIndex = tokenIdArr.length - 1;
-				setTokensMinted(numberWithCommas(tokenIdArr[lastIndex]));
+				// setTokensMinted(numberWithCommas(tokenIdArr[lastIndex]));
 				setTransactionStatus(`Now that your transaction is completed, you can view your NFTs on OpenSea once the metadata is revealed. Your token ids are ${tokenIdArr}.`);
 				setTransactionURLTxt('Completed Transaction');
 			}

@@ -16,7 +16,7 @@ https://bitbirds.herokuapp.com/
 
 ## Video Walkthrough
 
-https://www.loom.com/share/f5301d8fdf484c3db35abc4fd0479984
+https://www.loom.com/share/d4cca53de9d34cabac43c9e196e80534
 
 ## Simple Workflow
 
