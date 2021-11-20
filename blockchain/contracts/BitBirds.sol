@@ -9,7 +9,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 /// @title A contract that mints NFT tokens
 /// @author kyle reynolds
 contract BitBirds is ERC721Enumerable, Ownable {
-    /// @dev storage variables
+    /// @notice storage variables
     using Strings for uint256;
     /// @dev baseURI for example: https://bitbirds.herokuapp.com/metadata/
     string public baseURI;
@@ -26,16 +26,19 @@ contract BitBirds is ERC721Enumerable, Ownable {
     /// @dev paused boolean for pausing the smart contract
     bool public paused = false;
 
-    /// @dev events
+    /// @notice events
     /// @notice emit when a new token id is minted
     /// @param _newTokenId is the new token id
     event printNewTokenId(uint256 _newTokenId);
 
-    /// @dev modifiers placeholder
+    /// @notice modifiers placeholder
 
-    /// @dev constructor
+    /// @notice constructor
     /// @dev SWC-118 (Incorrect Constructor Name)
     /// @dev Initializes the contract setting the name, symbol and baseURI. Also mints 5 NFTs to the contract owner.
+    /// @param _name is the name of the NFT collection
+    /// @param _symbol is the symbol of the NFT collection
+    /// @param _initBaseURI is the baseURI of the NFT collection
     constructor(
         string memory _name,
         string memory _symbol,
@@ -45,14 +48,15 @@ contract BitBirds is ERC721Enumerable, Ownable {
         setBaseURI(_initBaseURI);
     }
 
-    /// @dev internal functions
+    /// @notice internal functions
     /// @dev returns baseURI and overrides built in function
     function _baseURI() internal view virtual override returns (string memory) {
         return baseURI;
     }
 
-    /// @dev public functions
+    /// @notice public functions
     /// @dev mints X number of NFTs by passing mintAmount
+    /// @param _mintAmount is the number of NFTs the user wants to mint
     function mint(uint256 _mintAmount) public payable {
         uint256 supply = totalSupply();
         /// @dev contract cannot be paused
@@ -82,7 +86,8 @@ contract BitBirds is ERC721Enumerable, Ownable {
         }
     }
 
-    /// @dev passes in the wallet address and returns what token ids that wallet owns
+    /// @notice passes in the wallet address and returns what token ids that wallet owns
+    /// @param _owner is the wallet address the function takes in
     function walletOfOwner(address _owner) public view returns (uint256[] memory) {
         uint256 ownerTokenCount = balanceOf(_owner);
         uint256[] memory tokenIds = new uint256[](ownerTokenCount);
@@ -92,7 +97,8 @@ contract BitBirds is ERC721Enumerable, Ownable {
         return tokenIds;
     }
 
-    /// @dev pass in the tokenId and return the baseURI for that token
+    /// @notice pass in the tokenId and return the baseURI for that token
+    /// @param tokenId you want to get the baseURI for
     function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
         require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
 
@@ -100,43 +106,49 @@ contract BitBirds is ERC721Enumerable, Ownable {
         return bytes(currentBaseURI).length > 0 ? string(abi.encodePacked(currentBaseURI, tokenId.toString(), baseExtension)) : "";
     }
 
-    /// @dev override renounce ownership 
+    /// @notice override renounce ownership so you don't accidently call it
+    /// @dev if this is called, the contract does not have an owner anymore
     function renounceOwnership() public pure override {
         revert("Can't renounce ownership here");
     }
 
-    /// @dev only owner functions
+    /// @notice only owner functions
     /// @dev set new cost function
+    /// @param _newCost is the new cost for one NFT
     function setCost(uint256 _newCost) public onlyOwner {
         cost = _newCost;
     }
 
-    /// @dev set max mint amount function
-    function setmaxMintAmount(uint256 _newmaxMintAmount) public onlyOwner {
-        maxMintAmount = _newmaxMintAmount;
+    /// @notice set max mint amount function
+    /// @param _newMaxMintAmount the new max mint amount per user
+    function setmaxMintAmount(uint256 _newMaxMintAmount) public onlyOwner {
+        maxMintAmount = _newMaxMintAmount;
     }
 
-    /// @dev set base uri function
+    /// @notice set base uri function
+    /// @param _newBaseURI the new base URI for the tokens
     function setBaseURI(string memory _newBaseURI) public onlyOwner {
         baseURI = _newBaseURI;
     }
 
-    /// @dev set base extension function
+    /// @notice set base extension function
+    /// @param _newBaseExtension the new base extension instead of .json
     function setBaseExtension(string memory _newBaseExtension) public onlyOwner {
         baseExtension = _newBaseExtension;
     }
 
-    /// @dev update pause state
+    /// @notice update pause state
+    /// @param _state the pause state, can be true or false
     function pause(bool _state) public onlyOwner {
         paused = _state;
     }
 
-    /// @dev get balance of contract
+    /// @notice get balance of contract
     function getBalance() public view onlyOwner returns (uint256) {
         return address(this).balance;
     }
 
-    /// @dev withdraw to owner
+    /// @notice withdraw to owner
     /// @dev SWC-105 (Unprotected Ether Withdrawal)
     function withdraw() public payable onlyOwner {
         payable(owner()).transfer(getBalance());
