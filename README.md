@@ -39,19 +39,19 @@ First, open a terminal in the `scripts` directory.
 
 ### bootstrap.py
 
-Run this file using `python3 bootstrap.py` which will npm install for your blockchain folder and frontend folder. This will install all the required dependencies including hardhat in your blockchain folder.
+Run this file using `python3 bootstrap.py` which will `npm install` for your `blockchain` folder and `frontend` folder. This will install all the required dependencies including `hardhat` in your `blockchain` folder.
 
 ### tests.py
 
-Run this file `python3 tests.py` which will run 5 tests for the smart contract using hardhat.
+Run this file using `python3 tests.py` which will run 5 tests for the smart contract using `hardhat`.
 
 ### server-backend.py
 
-Run this file `python3 server-backend.py` if you want to run a local backend server. I would not recommend this unless you really want to play around with the backend of MongoDB. You should only do this if you want to setup your own database with MongoDB and initialize it with the NFT metadata and images.
+Run this file using `python3 server-backend.py` if you want to run a local backend server. I would not recommend this unless you really want to play around with the backend of MongoDB. You should only do this if you want to setup your own database with MongoDB and initialize it with the NFT metadata and images.
 
 ### server-frontend.py
 
-Run this file `python3 server-frontend.py` if you want to run a local frontend server. Currently the frontend is setup to proxy to the heroku link. You will need to update this in the package.json file in the frontend folder if you are using a local backend server.
+Run this file using `python3 server-frontend.py` if you want to run a local frontend server. Currently the frontend is setup to proxy to the heroku link. You will need to update this in the `package.json` file in the `frontend` folder if you are using a local backend server.
 
 ## Populate env files
 
@@ -77,7 +77,7 @@ ETHERSCAN_API_KEY<br>
 ### frontend env file
 
 Create `.env` file in the `frontend` folder.
-You will need to use the same alchemy url from the blockchain file<br>
+You will need to use the same alchemy url from the `blockchain` `.env` file.<br>
 
 REACT_APP_ALCHEMY_KEY<br>
 REACT_APP_CONTRACT_ADDRESS = "0x781B479795d72742491B4f522A811e1847fcCc9A"
