@@ -35,7 +35,7 @@ https://www.loom.com/share/f5301d8fdf484c3db35abc4fd0479984
 
 ## Installation Instructions
 
-First, open a terminal in the scripts directory.
+First, open a terminal in the `scripts` directory.
 
 ### bootstrap.py
 
