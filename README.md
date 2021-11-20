@@ -4,11 +4,9 @@
 
 Due to the rise in popularity of NFTs, there has been a huge rise in artists that want to create NFTs and launch collections. However, a lot of these artists don't have the technical background needed in order to successfully launch a NFT collection. For example, if you look on Upwork there are a lot of postings for people looking for Solidity developers to help launch their NFT project. Some of these projects even have website designers, but not Solidity developers.
 
-For my final project I'm going to create a website that allows buyers (EOAs) to mint X number of NFTs at launch. This is a popular model since the NFT creator doesn't have to pay the gas fees to mint X number of NFTs at once which is hundreds of thousands of dollars. The buyers pay the gas fees to mint NFTs instead of the NFT creator, saving the NFT creator a lot of money.
+I've created a website that allows users to mint 3 NFTs per wallet out of a total of 1,000. This is a popular model that a lot of collections follow, mint X number of NFTs out of Y total. I'm very excited because I've started my own LLC to help artists create NFT collections and websites. I see a very bright future in the NFT space and I feel like they are just getting started.
 
-For example, let's say the NFT artist has 10,000 randomly generated unique dogs they want to launch as a NFT collection. They only want each buyer (EOA) to be able to mint 10 dogs out of their collection. The buyer does not know which unique dog they are buying so they buy 10 in the hopes of getting a rare dog with unique traits.
-
-In the future, this would be a scalable platform where artists can launch multiple NFT collections with a press of a button, but for now I'm going to build this where you will need to manually change certain parts of the code in order to launch different NFT collections.
+In the future, I want to template this so you can easily integrate it into an existing website. Please see the [Future Development](#Future-Development) section for more.
 
 ## Heroku link
 
@@ -99,3 +97,9 @@ This is the folder where the React code lives. The main files are Minter.js and 
 ### root directory
 
 This is the root of the project where there is information about avoiding common attacks, the deployed address, and design patterns. There is also a Procfile and requirements.txt file for heroku.
+
+## Future Development
+
+-   I would like to clean up the frontend UI/UX and make it look cleaner. I would also like to add some sections common NFT websites have like About Us and Meet the Team.
+-   A lot of NFT collections have a presale where whitelisted users can mint NFTs before everyone else. I would like to implement this feature in the future.
+-   I want to show the total supply or total number of NFTs that have been minted out of the total number of NFTs available. I didn't have time to fully think this through, but it is a good item to add for the future.
