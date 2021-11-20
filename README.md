@@ -18,37 +18,53 @@ https://bitbirds.herokuapp.com/
 
 https://www.loom.com/share/f5301d8fdf484c3db35abc4fd0479984
 
+## Simple Workflow
+
+1. Make sure you're connected to the rinkeby testnet on MetaMask.
+2. Connect your wallet to the website.
+3. Mint the desired number of NFTs.
+4. Wait for transaction to be completed.
+5. Once completed view your NFTs on OpenSea.
+
+## Prerequisites
+
+-   python3
+-   npm
+-   npx
+-   `git checkout master`
+
 ## Installation Instructions
 
-First, open a terminal in the scripts directory. Make sure you have python3 installed on your computer.
+First, open a terminal in the scripts directory.
 
 ### bootstrap.py
 
-Run this file which will npm install for your blockchain folder and frontend folder
+Run this file using `python3 bootstrap.py` which will npm install for your blockchain folder and frontend folder. This will install all the required dependencies including hardhat in your blockchain folder.
 
 ### tests.py
 
-Run this file which will run 5 tests for the smart contract using hardhat
+Run this file `python3 tests.py` which will run 5 tests for the smart contract using hardhat.
 
 ### server-backend.py
 
-Run this file if you want to run a local backend server
+Run this file `python3 server-backend.py` if you want to run a local backend server. I would not recommend this unless you really want to play around with the backend of MongoDB. You should only do this if you want to setup your own database with MongoDB and initialize it with the NFT metadata and images.
 
 ### server-frontend.py
 
-Run this file if you want to run a local frontend server. Currently the frontend is setup to proxy to the heroku link. You will need to update this in the package.json file in the frontend folder if you are using a local backend server.
+Run this file `python3 server-frontend.py` if you want to run a local frontend server. Currently the frontend is setup to proxy to the heroku link. You will need to update this in the package.json file in the frontend folder if you are using a local backend server.
 
-Second, populate the env files.
+## Populate env files
 
 ### backend env file
 
-Populate with the code below for flask:
+Create `.env` file in `backend` folder and populate with the code below for flask:
 
 FLASK_APP=app.py<br>
 FLASK_ENV=production
 
 ### blockchain env file
 
+Create `.env` file in the `blockchain` folder.
 You will need to get a rinkeby API_URL from https://www.alchemy.com/<br>
 Update the private key and public key for your wallet<br>
 You will need to get an API key from https://etherscan.io/<br>
@@ -60,6 +76,7 @@ ETHERSCAN_API_KEY<br>
 
 ### frontend env file
 
+Create `.env` file in the `frontend` folder.
 You will need to use the same alchemy url from the blockchain file<br>
 
 REACT_APP_ALCHEMY_KEY<br>
@@ -69,7 +86,7 @@ REACT_APP_CONTRACT_ADDRESS = "0x781B479795d72742491B4f522A811e1847fcCc9A"
 
 ### backend
 
-This is the folder where my python files are that connect to Mongo to manage the metadata. The idea is that post sale, we will migrate to IPFS.
+This is the folder where my python files are that connect to MongoDB to manage the metadata. The idea is that post sale, we will migrate to IPFS. I would not touch the files in here unless you want to host your own NFT metadata and images via MongoDB.
 
 ### blockchain
 

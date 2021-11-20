@@ -10,8 +10,8 @@ web3.eth.handleRevert = true;
 const Minter = () => {
 	// string that stores the user's wallet address
 	const [walletAddress, setWallet] = useState('');
-    // number of tokens minted so far
-    const [tokensMinted, setTokensMinted] = useState(5);
+	// number of tokens minted so far
+	const [tokensMinted, setTokensMinted] = useState(5);
 	// string that contains a message to display at the bottom of the UI
 	const [status, setStatus] = useState('');
 	// string that contains the pending transaction string to display at the bottom of the UI
@@ -82,9 +82,9 @@ const Minter = () => {
 		});
 	}
 
-    function numberWithCommas(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
+	function numberWithCommas(x) {
+		return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	}
 
 	// called to mint the user's NFT
 	const onMintPressed = async () => {
@@ -172,8 +172,8 @@ const Minter = () => {
 		// upon completion of transaction, update success variable
 		var txSuccess = txReceipt['status'];
 
-        // index of last token minted
-        var lastIndex;
+		// index of last token minted
+		var lastIndex;
 
 		// if the transaction was successful, then get the tokenId
 		if (txSuccess) {
@@ -185,19 +185,19 @@ const Minter = () => {
 				tokenId = parseInt(txReceipt['logs'][1]['data'], 16);
 				tokenIdArr.push(tokenId);
 
-                lastIndex = tokenIdArr.length - 1;
-                setTokensMinted(numberWithCommas(tokenIdArr[lastIndex]));
-				setTransactionStatus(`Now that your transaction is completed, you can view your NFT on Open Sea once the metadata is revealed. Your token id is ${tokenIdArr}.`);
+				lastIndex = tokenIdArr.length - 1;
+				setTokensMinted(numberWithCommas(tokenIdArr[lastIndex]));
+				setTransactionStatus(`Now that your transaction is completed, you can view your NFT on OpenSea once the metadata is revealed. Your token id is ${tokenIdArr}.`);
 				setTransactionURLTxt('Completed Transaction');
 			} else {
 				for (let i = 1; i <= txReceipt['logs'].length; i += 2) {
 					tokenId = parseInt(txReceipt['logs'][i]['data'], 16);
 					tokenIdArr.push(tokenId);
 				}
-                
-                lastIndex = tokenIdArr.length - 1;
-                setTokensMinted(numberWithCommas(tokenIdArr[lastIndex]))
-				setTransactionStatus(`Now that your transaction is completed, you can view your NFTs on Open Sea once the metadata is revealed. Your token ids are ${tokenIdArr}.`);
+
+				lastIndex = tokenIdArr.length - 1;
+				setTokensMinted(numberWithCommas(tokenIdArr[lastIndex]));
+				setTransactionStatus(`Now that your transaction is completed, you can view your NFTs on OpenSea once the metadata is revealed. Your token ids are ${tokenIdArr}.`);
 				setTransactionURLTxt('Completed Transaction');
 			}
 
@@ -228,8 +228,8 @@ const Minter = () => {
 				</button>
 				<br></br>
 				<br></br>
-                <p>Tokens Minted: {tokensMinted}/1,000</p>
-                <br></br>
+				<p>Tokens Minted: {tokensMinted}/1,000</p>
+				<br></br>
 				<br></br>
 				<p>Get your random BitBird NFT below, all NFTs are 0.01 ETH!</p>
 				<br></br>
