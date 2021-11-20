@@ -50,7 +50,7 @@ const Minter = () => {
 				// else prompt user to connect to Metamask
 				else {
 					setWallet('');
-					setStatus('🦊 Connect to Metamask using the top right button.');
+					setStatus('🦊 Connect to Metamask using the top button.');
 				}
 			});
 		} else {
