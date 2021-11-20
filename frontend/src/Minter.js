@@ -11,7 +11,7 @@ const Minter = () => {
 	// string that stores the user's wallet address
 	const [walletAddress, setWallet] = useState('');
 	// number of tokens minted so far
-	const [tokensMinted, setTokensMinted] = useState(5);
+	const [tokensMinted, setTokensMinted] = useState(6);
 	// string that contains a message to display at the bottom of the UI
 	const [status, setStatus] = useState('');
 	// string that contains the pending transaction string to display at the bottom of the UI
@@ -226,9 +226,9 @@ const Minter = () => {
 				<button id='walletButton' onClick={connectWalletPressed}>
 					{walletAddress.length > 0 ? 'Connected: ' + String(walletAddress).substring(0, 6) + '...' + String(walletAddress).substring(38) : <span>Connect Wallet</span>}
 				</button>
+				{/* <br></br>
 				<br></br>
-				<br></br>
-				<p>Tokens Minted: {tokensMinted}/1,000</p>
+				<p>Tokens Minted: {tokensMinted}/1,000</p> */}
 				<br></br>
 				<br></br>
 				<p>Get your random BitBird NFT below, all NFTs are 0.01 ETH!</p>
