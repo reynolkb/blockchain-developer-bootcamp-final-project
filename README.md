@@ -41,7 +41,7 @@ Run this file using `python3 bootstrap.py` which will `npm install` for your `bl
 
 ### tests.py
 
-Run this file using `python3 tests.py` which will run 5 tests for the smart contract using `hardhat`.
+Go to the `hardhat.config.js` file and uncomment lines 14-16 so `localhost is visible`. Comment out lines 19-22 so `rinkeby` is not visible. Run this file using `python3 tests.py` which will run 5 tests for the smart contract using `hardhat`.
 
 ### server-backend.py
 

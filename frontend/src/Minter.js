@@ -228,7 +228,7 @@ const Minter = () => {
 				</button>
 				{/* <br></br>
 				<br></br>
-				<p>Tokens Minted: {tokensMinted}/1,000</p> */}
+				<p>Tokens Minted: 5/1,000</p> */}
 				<br></br>
 				<br></br>
 				<p>Get your random BitBird NFT below, all NFTs are 0.01 ETH!</p>
