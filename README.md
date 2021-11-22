@@ -14,7 +14,8 @@ https://bitbirds.herokuapp.com/
 
 ## Video Walkthrough
 
-https://www.loom.com/share/d4cca53de9d34cabac43c9e196e80534
+Demo: https://www.loom.com/share/d4cca53de9d34cabac43c9e196e80534
+Running Tests with Hardhat: https://www.loom.com/share/f1cb2fded07f41e09ccb2a87a655ae30?sharedAppSource=personal_library
 
 ## Simple Workflow
 
