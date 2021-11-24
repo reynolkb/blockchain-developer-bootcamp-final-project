@@ -55,7 +55,9 @@ Run this file using `python3 server-backend.py` if you want to run a local backe
 
 Run this file using `python3 server-frontend.py` if you want to run a local frontend server. Currently the frontend is setup to proxy to the heroku link. You will need to update this in the `package.json` file in the `frontend` folder if you are using a local backend server.<br>
 
-Make sure you create a `.env` file in the `frontend` folder by following the instructions in the [frontend env file](#frontend-env-file) section before running `python3 server-frontend.py`.
+Make sure you create a `.env` file in the `frontend` folder by following the instructions in the [frontend env file](#frontend-env-file) section before running `python3 server-frontend.py`.<br>
+
+If you get stuck please watch the Loom video in the [Video Walkthrough](#Video-Walkthrough) section.
 
 ## Populate env files
 
