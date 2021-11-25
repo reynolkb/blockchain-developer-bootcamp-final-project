@@ -15,7 +15,7 @@ https://bitbirds.herokuapp.com/
 ## Video Walkthrough
 
 Demo: https://www.loom.com/share/d4cca53de9d34cabac43c9e196e80534 <br>
-Running Tests with Hardhat: https://www.loom.com/share/f1cb2fded07f41e09ccb2a87a655ae30 <br>
+Running Tests with Hardhat: https://www.loom.com/share/ab19d15d2f8249b484d7425bd5ef2df8 <br>
 Running the frontend locally: https://www.loom.com/share/b5c6a5618305487fa99f1587f9e72970
 
 ## Simple Workflow
