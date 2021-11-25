@@ -21,4 +21,4 @@ Finally, I have the bulk of the Python work in the nft.py file and nftUtil.py fi
 
 ## Inheritance and Interfaces
 
-`BitBirds` contract inherts the Open Zeppelin `Ownable` contract to enable ownership for the contract owner. It also inherits the Open Zeppelin `ERC721Enumerable` contract adhere to the NFT ERC721 contract standard.
+`BitBirds` contract inherts the Open Zeppelin `Ownable` contract to enable ownership for the contract owner. It also inherits the Open Zeppelin `ERC721Enumerable` contract which adheres to the NFT ERC721 contract standard.
