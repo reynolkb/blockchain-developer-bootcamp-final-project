@@ -1,6 +1,5 @@
 const { expect } = require('chai');
 const { ethers } = require('ethers');
-const { PUBLIC_KEY, PRIVATE_KEY } = process.env;
 
 describe('BitBirds', function () {
 	// basic test to return name and symbol that is entered
@@ -198,5 +197,53 @@ describe('BitBirds', function () {
 		contractBalance = parseInt(contractBalance['_hex'], 16);
 		contractBalance = contractBalance.toString();
 		expect(contractBalance).to.equal('0');
+	});
+	// test to make sure that when the non-owner withdraws the transaction is reverted
+	it('test to make sure that when the non-owner withdraws the transaction is reverted', async function () {
+		const BitBirds = await hre.ethers.getContractFactory('BitBirds');
+		const bitBirds = await BitBirds.deploy('BitBirds', 'BB', 'https://bitbirds.herokuapp.com/metadata/');
+
+		await bitBirds.deployed();
+
+		// private and public key from local blockchain network
+		const provider = new ethers.providers.JsonRpcProvider();
+		const privateKey = '0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80';
+		const signer = new ethers.Wallet(privateKey, provider);
+		const publicKey = '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266';
+
+		// non owner public key
+		const nonOwnerPrivateKey = '0x59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d';
+		const nonOwnerSigner = new ethers.Wallet(nonOwnerPrivateKey, provider);
+		const nonOwnerPublicKey = '0x70997970c51812dc3a010c7d01b50e0d17dc79c8';
+
+		const _nonce = await signer.getTransactionCount('latest');
+
+		bitBirds.on('printNewTokenId', (newTokenId) => {
+			const _newTokenId = newTokenId;
+			console.log(_newTokenId);
+		});
+
+		let ABI = ['function mint(uint256 _mintAmount)'];
+		let iface = new ethers.utils.Interface(ABI);
+
+		const _data = iface.encodeFunctionData('mint', [1]);
+		const _contractAddress = bitBirds.address;
+
+		// gasPrice is null since it's an EIP-1559 transaction
+		const _gasPrice = await provider.getGasPrice();
+		const _gasLimit = 500000;
+
+		const tx = {
+			from: publicKey,
+			to: _contractAddress,
+			nonce: _nonce,
+			gasLimit: _gasLimit,
+			gasPrice: _gasPrice,
+			data: _data,
+			value: ethers.utils.parseEther('0.01'),
+		};
+
+		await signer.sendTransaction(tx);
+		await expect(bitBirds.connect(nonOwnerSigner).withdraw()).to.be.revertedWith('Ownable: caller is not the owner');
 	});
 });
