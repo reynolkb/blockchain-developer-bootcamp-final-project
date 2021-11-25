@@ -29,6 +29,7 @@ Running the frontend locally: https://www.loom.com/share/b5c6a5618305487fa99f158
 ## Prerequisites
 
 -   python3
+-   Node.js >= v14
 -   npm
 -   npx
 -   `git checkout master`
