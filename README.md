@@ -18,6 +18,10 @@ Demo: https://www.loom.com/share/d4cca53de9d34cabac43c9e196e80534 <br>
 Running Tests with Hardhat: https://www.loom.com/share/ab19d15d2f8249b484d7425bd5ef2df8 <br>
 Running the frontend locally: https://www.loom.com/share/b5c6a5618305487fa99f1587f9e72970
 
+## Public Ethereum Account
+
+Here is my public ethereum account to receive my certification as an NFT: 0x109a296b271CC2A73E4cC0FaD2aFf4784e6b8bF1
+
 ## Simple Workflow
 
 1. Make sure you're connected to the rinkeby testnet on MetaMask.
