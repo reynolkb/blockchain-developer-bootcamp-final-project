@@ -7,7 +7,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-
 ######################################## GLOBAL VARIABLES ########################################
 # Get the DATABASE_CONNECTION_STRING from the environment (.env or Heroku config)
 _DATABASE_CONNECTION_STRING = os.getenv("DATABASE_CONNECTION_STRING")

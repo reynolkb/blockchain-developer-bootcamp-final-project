@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 
 /// @dev SWC-103 (Floating pragma)
+// you need ^ in the version for remix
 pragma solidity 0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
