@@ -86,7 +86,7 @@ def GetMetadata(tokenIdJson):
     return jsonify(metadata)
 
 
-@app.route("test-metadata/<token_id>", methods=["GET"])
+@app.route("/test-metadata/<token_id>", methods=["GET"])
 def GetMetadata2(token_id):
     """
     Get the metadata.
